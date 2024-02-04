@@ -82,14 +82,14 @@ CLRMULT:        clc                     ; Advance CANDIDATE positions
                 sta     (ADP1),Y
                 jmp     CLRMULT         ; Advance to next multiple
 
-NEXT:           ldy     #2
-@INC:           inc     CANDIDATE
-                bne     @LOOP
+NEXT:           clc
+                lda     #2
+                adc     CANDIDATE
+                sta     CANDIDATE
+                bcc     ISBGR
                 inc     CANDIDATE+1
-@LOOP:          dey
-                bne     @INC
 
-                lda     #>(LAST+1)      ; Compare to last candidate
+ISBGR:          lda     #>(LAST+1)      ; Compare to last candidate
                 cmp     CANDIDATE+1
                 bcc     DONE            ; Greater, done 
                 bne     CHECK           ; Lower, loop
