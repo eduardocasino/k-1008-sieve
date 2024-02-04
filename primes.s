@@ -1,4 +1,4 @@
-; Visually displays distribution of the prime numbers between 1 and 12800
+; Visually displays distribution of the prime numbers between 1 and 128000
 ; (except for "2") using a sieve algorithm.
 ;
 ; Requires KIM-1 with a K-1008 Visable Memory Card
