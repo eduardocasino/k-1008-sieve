@@ -1,0 +1,8 @@
+MEMORY {
+        ZP:     start = $0000, size = $FF;
+        RAM:    start = %%START%%, size = $1000;
+}
+SEGMENTS {
+        zp:     load = ZP,  type = zp,  start = $e8;
+        code:   load = RAM, type = rw;
+}
