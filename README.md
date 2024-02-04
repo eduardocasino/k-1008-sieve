@@ -7,6 +7,6 @@ Based on the description of a similar program that MTU's Hal Chamberlin wrote fo
 
 The Intel hex and pap files load at 0x0400 and assume K-1008 at 0xA000. You can edit the "START" and "VMORG" variables in the Makefile to suit your setup.
 
-Be sure your interrupt vector (at l7FE and 17FF) is set to address $1C00.
+Be sure your interrupt vector (at 0x17FE and 0x17FF) is set to address 0x1C00.
 
 This program is in the **PUBLIC DOMAIN**.
