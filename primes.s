@@ -29,11 +29,11 @@ LAST            =       357             ; Last candidate to check:
 
                 .segment "zp" : zeropage
 
-ADP1:           .res    2               ; ADDRESS POINTER 1    
+ADP1:           .res    2               ; Address pointer    
 CANDIDATE:      .res    2               ; Candidate counter
 CNDP:           .res    2               ; Multiple of Candidate pixel
-BTPT:           .res    1               ; PIXEL BIT MASK
-                .assert * = $EF, error, "Page zero overflow!"
+BTPT:           .res    1               ; Bit number
+                .assert * <= $EF, error, "Page zero overflow!"
 
                 .segment "code"
 
@@ -95,7 +95,7 @@ ISBGR:          lda     #>(LAST+1)      ; Compare to last candidate
                 bne     CHECK           ; Lower, loop
                 lda     #<(LAST+1)
                 cmp     CANDIDATE
-                bcs     CHECK           ; Nope, loop
+                bcs     CHECK           ; Lower, loop
 
 DONE:           brk                     ; Yes, we're done!
 
