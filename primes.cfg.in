@@ -3,6 +3,6 @@ MEMORY {
         RAM:    start = %%START%%, size = $1000;
 }
 SEGMENTS {
-        zp:     load = ZP,  type = zp,  start = $e8;
+        zp:     load = ZP,  type = zp,  start = %%ZPINI%%;
         code:   load = RAM, type = rw;
 }
